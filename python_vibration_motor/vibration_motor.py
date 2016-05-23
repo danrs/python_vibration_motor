@@ -24,12 +24,14 @@ import Adafruit_BBIO.GPIO as GPIO
 
 class vibration_motor:
     def __init__(self, pin="P9_17", status=GPIO.LOW):
-        # The Adafruit_BBIO library will accept pins as numbers (eg. "P9_17")
-        # or pin names (eg "GPIO_5"). There are many GPIO pins, but some are
-        # used for other features (eg UART) if that feature is enabled. Note
-        # that sometimes the GPIO name doesn't work correctly (eg for GPIO_5)
-        # so using PX_XX names instead is recommended
-        #
+        """
+        The Adafruit_BBIO library will accept pins as numbers (eg. "P9_17")
+        or pin names (eg "GPIO_5"). There are many GPIO pins, but some are
+        used for other features (eg UART) if that feature is enabled. Note
+        that sometimes the GPIO name doesn't work correctly (eg for GPIO_5)
+        so using PX_XX names instead is recommended
+        
+        """
         pin_number_re = re.compile('P[89]_([1-9]?[0-9])', re.IGNORECASE)
         pin_name_re = re.compile('GPIO_([1-9]?[0-9]?[0-9])', re.IGNORECASE)
         if not re.match(pin_name_re,pin):
@@ -42,14 +44,26 @@ class vibration_motor:
         GPIO.output(self.pin, self.status);
 
     def getStatus(self):
+        """
+        Return current motor status (on/off)
+        """
         return self.status
     def on(self):
+        """
+        Turn motor on
+        """
         GPIO.output(self.pin, GPIO.HIGH)
         self.status = GPIO.HIGH
     def off(self):
+        """
+        Turn motor off
+        """
         GPIO.output(self.pin, GPIO.LOW)
         self.status = GPIO.LOW
     def toggle(self):
+        """
+        Toggle motor status (on/off
+        """
         if(self.status == GPIO.HIGH):
             self.off()
         else:
