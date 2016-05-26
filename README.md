@@ -3,7 +3,7 @@ Python library for simple control of Grove vibration motors over digital gpio. T
 
 To install, execute the following commands:
 ```
-git clone https://github.com/danrs/python_vibration_motor # or download as a zip and extract it somewhere handy
+git clone https://github.com/modular-CAT/python_vibration_motor # or download as a zip and extract it somewhere handy
 cd python_vibration_motor
 sudo python setup.py install
 ```
